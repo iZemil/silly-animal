@@ -10,11 +10,18 @@ jobs:
               uses: actions/setup-node@v3
               with:
                   node-version: 18
+
             - name: Install dependencies
               run: npm install
+
             - name: Build npm package lib
               run: |
                   npm run build
+
+            - name: Testing
+              run: |
+                  npm run test
+
             - name: Semantic release
               env:
                   GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
