@@ -1,12 +1,12 @@
-import { adjectives } from "./adjectives";
-import { animals } from "./animals";
+import { adjectives, animals } from './dicts';
 
-const random = <T>(arr: T[]): T => arr[Math.floor(Math.random() * arr.length)];
+const randomItem = <T>(arr: T[]): T => arr[Math.floor(Math.random() * arr.length)];
 
-export function generate(divider = ' '): string {
-    const adj = random(adjectives);
-    const animal = random(animals);
+function generate(divider = ' '): string {
+    const adj = randomItem(adjectives);
+    const animal = randomItem(animals);
 
-    return `${adj}${divider}${animal}`
+    return `${adj}${divider}${animal}`;
 }
 
+export { adjectives, animals, generate, randomItem };
